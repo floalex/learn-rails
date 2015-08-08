@@ -33,12 +33,12 @@ Rails.application.configure do
   domain: Rails.application.secrets.domain_name,
   authentication: "plain",
   enable_starttls_auto: true,
-  user_name: Rails.application.secrets.email_provider_username,
-  password: Rails.application.secrets.email_provider_password
+  user_name: ENV["GMAIL_USERNAME"],
+  password: ENV["GMAIL_PASSWORD"]
   }
   # ActionMailer Config
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { :host => 'http://ruby-on-rails-108783.nitrousapp.com:3000/' }
+#   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true
   # Send email in development mode?
   config.action_mailer.perform_deliveries = true
@@ -54,4 +54,5 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  config.action_mailer.delivery_method = :letter_opener
 end

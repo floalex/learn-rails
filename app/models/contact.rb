@@ -1,4 +1,4 @@
-require 'google_drive_v0'
+
 class Contact
   include ActiveModel::Model
   attr_accessor :name, :string
